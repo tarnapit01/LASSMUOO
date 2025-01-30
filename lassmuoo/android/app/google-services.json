@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "201757554743",
+    "project_id": "lassmuoo-3e745",
+    "storage_bucket": "lassmuoo-3e745.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:201757554743:android:44258e9f3800cc776267b2",
+        "android_client_info": {
+          "package_name": "com.example.lassmuoo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOZa48IgYfsIhHide02VUV4Ru7PiY-frc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
