@@ -1,7 +1,7 @@
 // Intro/home.dart
 import 'package:flutter/material.dart';
-import 'package:lassmuoo/earth_structure/home_earth_structure.dart';
-import 'package:lassmuoo/solar_system/home_solar.dart';
+import 'package:lassmuoo/screen/earth_structure/home_earth_structure.dart';
+import 'package:lassmuoo/screen/solar_system/home_solar.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

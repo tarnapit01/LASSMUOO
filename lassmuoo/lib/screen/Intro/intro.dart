@@ -1,6 +1,6 @@
 // Intro/intro.dart
 import 'package:flutter/material.dart';
-import 'package:lassmuoo/Intro/f_intro.dart';
+import 'package:lassmuoo/screen/Intro/f_intro.dart';
 
 class IntroScreen extends StatelessWidget {
   const IntroScreen({super.key});

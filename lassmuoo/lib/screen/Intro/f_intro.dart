@@ -1,11 +1,15 @@
-// Intro/t_intro.dart
+// Intro/f_intro.dart
 import 'package:flutter/material.dart';
-import 'package:lassmuoo/Intro/home.dart';
-// import 'package:lassmuoo/Intro/intro.dart';
+import 'package:lassmuoo/screen/Intro/s_intro.dart';
 
-class ThirdScreen extends StatelessWidget {
-  const ThirdScreen({super.key});
+class FirstIntroScreen extends StatefulWidget {
+  const FirstIntroScreen({super.key});
 
+  @override
+  State<FirstIntroScreen> createState() => _FirstIntroScreenState();
+}
+
+class _FirstIntroScreenState extends State<FirstIntroScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,36 +22,36 @@ class ThirdScreen extends StatelessWidget {
                 decoration: BoxDecoration(
                     image: DecorationImage(
                         image:
-                            AssetImage("lib/assets/images/Welcome_page 7.jpg"),
+                            AssetImage("lib/assets/images/Welcome_page 6.jpg"),
                         fit: BoxFit.cover)),
                 padding: EdgeInsets.fromLTRB(12, 0, 12, 8),
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
-                        "มู ต้องออกเดินทางสำรวจจักรวาล และได้พบกับระบบสุริยะ ดังนั้น มูต้องเรียนรู้และเก็บข้อมูลเกี่ยวกับดวงอาทิตย์ ดาวเคราะห์ และโลก รวมถึงโครงสร้างของโลก",
+                        "นี่คือ มู สิ่งมีชีวิตที่จากดาวที่ขาดแคลนทรัพยากร",
                         style: TextStyle(
-                            fontSize: 20,
+                            fontSize: 30,
                             fontWeight: FontWeight.bold,
                             color: Colors.white),
                       ),
                       SizedBox(
-                        height: 520,
+                        height: 550,
                       ),
                       Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             CircleAvatar(
-                              backgroundColor: Colors.white,
-                            ),
-                            SizedBox(width: 10),
-                            CircleAvatar(
-                              backgroundColor: Colors.white,
-                            ),
-                            SizedBox(width: 10),
-                            CircleAvatar(
                               backgroundColor: Colors.deepPurple,
+                            ),
+                            SizedBox(width: 10),
+                            CircleAvatar(
+                              backgroundColor: Colors.white,
+                            ),
+                            SizedBox(width: 10),
+                            CircleAvatar(
+                              backgroundColor: Colors.white,
                             )
                           ]),
                       SizedBox(
@@ -62,7 +66,7 @@ class ThirdScreen extends StatelessWidget {
                             onPressed: () {
                               Navigator.pushReplacement(context,
                                   MaterialPageRoute(builder: (context) {
-                                return HomeScreen();
+                                return SecondScreen();
                               }));
                             },
                             icon: Text(

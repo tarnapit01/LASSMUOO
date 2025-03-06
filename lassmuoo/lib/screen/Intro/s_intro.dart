@@ -1,15 +1,10 @@
-// Intro/f_intro.dart
+// Intro/s_intro.dart
 import 'package:flutter/material.dart';
-import 'package:lassmuoo/Intro/s_intro.dart';
+import 'package:lassmuoo/screen/Intro/t_intro.dart';
 
-class FirstIntroScreen extends StatefulWidget {
-  const FirstIntroScreen({super.key});
+class SecondScreen extends StatelessWidget {
+  const SecondScreen({super.key});
 
-  @override
-  State<FirstIntroScreen> createState() => _FirstIntroScreenState();
-}
-
-class _FirstIntroScreenState extends State<FirstIntroScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,32 +17,32 @@ class _FirstIntroScreenState extends State<FirstIntroScreen> {
                 decoration: BoxDecoration(
                     image: DecorationImage(
                         image:
-                            AssetImage("lib/assets/images/Welcome_page 6.jpg"),
+                            AssetImage("lib/assets/images/Welcome_page 5.jpg"),
                         fit: BoxFit.cover)),
                 padding: EdgeInsets.fromLTRB(12, 0, 12, 8),
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
-                        "นี่คือ มู สิ่งมีชีวิตที่จากดาวที่ขาดแคลนทรัพยากร",
+                        "เขาต้องการหาทรัพยากรสำคัญเพื่อช่วยฟื้นฟูดาวของตนเอง",
                         style: TextStyle(
                             fontSize: 30,
                             fontWeight: FontWeight.bold,
                             color: Colors.white),
                       ),
                       SizedBox(
-                        height: 550,
+                        height: 510,
                       ),
                       Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             CircleAvatar(
-                              backgroundColor: Colors.deepPurple,
+                              backgroundColor: Colors.white,
                             ),
                             SizedBox(width: 10),
                             CircleAvatar(
-                              backgroundColor: Colors.white,
+                              backgroundColor: Colors.deepPurple,
                             ),
                             SizedBox(width: 10),
                             CircleAvatar(
@@ -66,7 +61,7 @@ class _FirstIntroScreenState extends State<FirstIntroScreen> {
                             onPressed: () {
                               Navigator.pushReplacement(context,
                                   MaterialPageRoute(builder: (context) {
-                                return SecondScreen();
+                                return ThirdScreen();
                               }));
                             },
                             icon: Text(

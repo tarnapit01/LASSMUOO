@@ -1,27 +1,31 @@
-// solar_system/home_solar.dart
+// earth_structure/home_earth_structure.dart
 import 'package:flutter/material.dart';
 
-class HomeSolar extends StatefulWidget {
-  const HomeSolar({super.key});
+class HomeEarthStructure extends StatefulWidget {
+  const HomeEarthStructure({super.key});
 
   @override
-  State<HomeSolar> createState() => _MyWidgetState();
+  State<HomeEarthStructure> createState() => _HomeEarthStructure();
 }
 
-class _MyWidgetState extends State<HomeSolar> {
+class _HomeEarthStructure extends State<HomeEarthStructure> {
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Center(
           child: Text(
-            "ระบบสุริยะ",
+            "โครงสร้างโลก",
             style: TextStyle(
                 fontSize: 30, fontWeight: FontWeight.bold, color: Colors.white),
           ),
         ),
         SizedBox(
-          height: 250,
+          height: 20,
+        ),
+        Image.asset("lib/assets/gif/earth_structure.gif"),
+        SizedBox(
+          height: 30,
         ),
         Row(
           children: [
@@ -85,7 +89,7 @@ class _MyWidgetState extends State<HomeSolar> {
                       side: BorderSide(
                           color: Color.fromARGB(255, 51, 105, 30), width: 4.0),
                     )),
-                child: Text("Final",
+                child: Text("จบ",
                     style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
@@ -94,7 +98,7 @@ class _MyWidgetState extends State<HomeSolar> {
           height: 50,
         ),
         Center(
-            child: Text("เก็บ 3 ดาวเพื่อปลดล็อค",
+            child: Text("เก็บ 6 ดาวเพื่อปลดล็อค",
                 style: TextStyle(color: Colors.white))),
         Row(
           children: [

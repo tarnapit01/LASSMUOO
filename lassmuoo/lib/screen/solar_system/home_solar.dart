@@ -1,27 +1,34 @@
-// earth_structure/home_earth_structure.dart
+// screen/solar_system/home_solar.dart
 import 'package:flutter/material.dart';
+import 'package:lassmuoo/screen/solor_system_quiz/no1/solar_quiz_1.dart';
+import 'package:lassmuoo/screen/solor_system_quiz/no1/solar_quiz_2.dart';
+import 'package:lassmuoo/screen/solor_system_quiz/no1/solar_quiz_3.dart';
 
-class HomeEarthStructure extends StatefulWidget {
-  const HomeEarthStructure({super.key});
+class HomeSolar extends StatefulWidget {
+  const HomeSolar({super.key});
 
   @override
-  State<HomeEarthStructure> createState() => _HomeEarthStructure();
+  State<HomeSolar> createState() => _MyWidgetState();
 }
 
-class _HomeEarthStructure extends State<HomeEarthStructure> {
+class _MyWidgetState extends State<HomeSolar> {
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Center(
           child: Text(
-            "โครงสร้างโลก",
+            "ระบบสุริยะ",
             style: TextStyle(
                 fontSize: 30, fontWeight: FontWeight.bold, color: Colors.white),
           ),
         ),
         SizedBox(
-          height: 250,
+          height: 20,
+        ),
+        Image.asset("lib/assets/gif/Earth_edit.gif"),
+        SizedBox(
+          height: 30,
         ),
         Row(
           children: [
@@ -30,9 +37,15 @@ class _HomeEarthStructure extends State<HomeEarthStructure> {
                 height: 60,
                 width: 100,
                 child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushReplacement(context,
+                          MaterialPageRoute(builder: (context) {
+                        return SolarQuiz1Screen();
+                      }));
+                    },
                     style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.lightGreen[400],
+                        backgroundColor:
+                            const Color.fromARGB(255, 169, 210, 122),
                         shape: CircleBorder(
                           side: BorderSide(
                               color: Color.fromARGB(255, 51, 105, 30),
@@ -55,7 +68,12 @@ class _HomeEarthStructure extends State<HomeEarthStructure> {
                   height: 60,
                   width: 100,
                   child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushReplacement(context,
+                            MaterialPageRoute(builder: (context) {
+                          return SolarQuiz2Screen();
+                        }));
+                      },
                       style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.lightGreen[400],
                           shape: CircleBorder(
@@ -78,14 +96,19 @@ class _HomeEarthStructure extends State<HomeEarthStructure> {
             height: 60,
             width: 100,
             child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (context) {
+                    return SolarQuiz3Screen();
+                  }));
+                },
                 style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.lightGreen[400],
                     shape: CircleBorder(
                       side: BorderSide(
                           color: Color.fromARGB(255, 51, 105, 30), width: 4.0),
                     )),
-                child: Text("Final",
+                child: Text("จบ",
                     style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,

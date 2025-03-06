@@ -1,9 +1,10 @@
-// Intro/s_intro.dart
+// Intro/t_intro.dart
 import 'package:flutter/material.dart';
-import 'package:lassmuoo/Intro/t_intro.dart';
+import 'package:lassmuoo/screen/Intro/home.dart';
+// import 'package:lassmuoo/Intro/intro.dart';
 
-class SecondScreen extends StatelessWidget {
-  const SecondScreen({super.key});
+class ThirdScreen extends StatelessWidget {
+  const ThirdScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,21 +18,21 @@ class SecondScreen extends StatelessWidget {
                 decoration: BoxDecoration(
                     image: DecorationImage(
                         image:
-                            AssetImage("lib/assets/images/Welcome_page 5.jpg"),
+                            AssetImage("lib/assets/images/Welcome_page 7.jpg"),
                         fit: BoxFit.cover)),
                 padding: EdgeInsets.fromLTRB(12, 0, 12, 8),
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
-                        "เขาต้องการหาทรัพยากรสำคัญเพื่อช่วยฟื้นฟูดาวของตนเอง",
+                        "มู ต้องออกเดินทางสำรวจจักรวาล และได้พบกับระบบสุริยะ ดังนั้น มูต้องเรียนรู้และเก็บข้อมูลเกี่ยวกับดวงอาทิตย์ ดาวเคราะห์ และโลก รวมถึงโครงสร้างของโลก",
                         style: TextStyle(
-                            fontSize: 30,
+                            fontSize: 20,
                             fontWeight: FontWeight.bold,
                             color: Colors.white),
                       ),
                       SizedBox(
-                        height: 510,
+                        height: 520,
                       ),
                       Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
@@ -42,11 +43,11 @@ class SecondScreen extends StatelessWidget {
                             ),
                             SizedBox(width: 10),
                             CircleAvatar(
-                              backgroundColor: Colors.deepPurple,
+                              backgroundColor: Colors.white,
                             ),
                             SizedBox(width: 10),
                             CircleAvatar(
-                              backgroundColor: Colors.white,
+                              backgroundColor: Colors.deepPurple,
                             )
                           ]),
                       SizedBox(
@@ -61,7 +62,7 @@ class SecondScreen extends StatelessWidget {
                             onPressed: () {
                               Navigator.pushReplacement(context,
                                   MaterialPageRoute(builder: (context) {
-                                return ThirdScreen();
+                                return HomeScreen();
                               }));
                             },
                             icon: Text(
