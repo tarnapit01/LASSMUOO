@@ -1,8 +1,8 @@
-// screen/solor_system_quiz/no1/solar_assignment_2.dart
+// screen/solar_system/solor_system_quiz/no1/solar_assignment_2.dart
 import 'package:flutter/material.dart';
 
 import 'package:lassmuoo/screen/result/end_assignment_1.dart';
-import 'package:lassmuoo/screen/solor_system_quiz/no1/solar_assignment_1.dart';
+import 'package:lassmuoo/screen/solar_system/solor_system_quiz/no1/solar_assignment_1.dart';
 
 class SolarAssignment2Screen extends StatefulWidget {
   const SolarAssignment2Screen({super.key});

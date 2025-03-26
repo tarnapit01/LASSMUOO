@@ -1,0 +1,74 @@
+// screen/solar_system/solor_system_quiz/no3/solar_quiz_2.dart
+
+import 'package:flutter/material.dart';
+import 'package:lassmuoo/layout/next_button.dart';
+import 'package:lassmuoo/screen/solar_system/solor_system_quiz/no1/solar_quiz_3.dart';
+
+class SolarQuiz2Screen extends StatefulWidget {
+  const SolarQuiz2Screen({super.key});
+
+  @override
+  State<SolarQuiz2Screen> createState() => _SolarQuiz2ScreenState();
+}
+
+class _SolarQuiz2ScreenState extends State<SolarQuiz2Screen> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        backgroundColor: Colors.black,
+        body: Container(
+          padding: EdgeInsets.fromLTRB(20, 40, 20, 0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Text.rich(
+                TextSpan(
+                  children: [
+                    TextSpan(
+                      text: "มู", // คำที่ต้องการเปลี่ยนสีและขนาด
+                      style: TextStyle(
+                        color: Color(0xFF4EAF96), // เปลี่ยนสีเฉพาะคำว่า "มู"
+                        fontSize: 30, // เปลี่ยนขนาดเฉพาะคำว่า "มู"
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    TextSpan(
+                      text: ' พบกับ "ระบบสุริยะ" \nซึ่งเป็นระบบที่มี',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    TextSpan(
+                      text: ' ดวงอาทิตย์',
+                      style: TextStyle(
+                        color: Colors.amber[800],
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    TextSpan(
+                      text: 'เป็นจุดศูนย์กลาง',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+                maxLines: 30,
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Spacer(),
+              NextButton(
+                nextScreen: SolarQuiz3Screen(),
+              ),
+            ],
+          ),
+        ));
+  }
+}

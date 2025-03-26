@@ -1,8 +1,8 @@
-// screen/solor_system_quiz/no1/solar_quiz_3.dart
+// screen/solar_system/solor_system_quiz/no2/solar_quiz_3.dart
 
 import 'package:flutter/material.dart';
 import 'package:lassmuoo/layout/next_button.dart';
-import 'package:lassmuoo/screen/solor_system_quiz/no1/solar_quiz_4.dart';
+import 'package:lassmuoo/screen/solar_system/solor_system_quiz/no1/solar_quiz_4.dart';
 
 class SolarQuiz3Screen extends StatefulWidget {
   const SolarQuiz3Screen({super.key});

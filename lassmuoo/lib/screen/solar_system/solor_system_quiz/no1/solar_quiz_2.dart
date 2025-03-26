@@ -1,8 +1,8 @@
-// solor_system_quiz/solar_quiz_1.dart
+// screen/solar_system/solor_system_quiz/no1/solar_quiz_2.dart
 
 import 'package:flutter/material.dart';
 import 'package:lassmuoo/layout/next_button.dart';
-import 'package:lassmuoo/screen/solor_system_quiz/no1/solar_quiz_3.dart';
+import 'package:lassmuoo/screen/solar_system/solor_system_quiz/no1/solar_quiz_3.dart';
 
 class SolarQuiz2Screen extends StatefulWidget {
   const SolarQuiz2Screen({super.key});
@@ -60,13 +60,13 @@ class _SolarQuiz2ScreenState extends State<SolarQuiz2Screen> {
                 ),
                 maxLines: 30,
               ),
-              SizedBox(
-                height: 20,
-              ),
-              Spacer(),
-              NextButton(
-                nextScreen: SolarQuiz3Screen(),
-              ),
+              // SizedBox(
+              //   height: 20,
+              // ),
+              // Spacer(),
+              // NextButton(
+              //   nextScreen: SolarQuiz3Screen(),
+              // ),
             ],
           ),
         ));

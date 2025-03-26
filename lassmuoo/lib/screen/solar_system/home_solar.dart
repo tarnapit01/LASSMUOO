@@ -1,8 +1,9 @@
 // screen/solar_system/home_solar.dart
 import 'package:flutter/material.dart';
-import 'package:lassmuoo/screen/solor_system_quiz/no1/solar_quiz_1.dart';
-import 'package:lassmuoo/screen/solor_system_quiz/no1/solar_quiz_2.dart';
-import 'package:lassmuoo/screen/solor_system_quiz/no1/solar_quiz_3.dart';
+import 'package:lassmuoo/screen/solar_system/solor_system_quiz/no1/solar_quiz_1.dart';
+import 'package:lassmuoo/screen/solar_system/solor_system_quiz/no1/solar_quiz_2.dart';
+import 'package:lassmuoo/screen/solar_system/solor_system_quiz/no1/solar_quiz_3.dart';
+import 'package:lassmuoo/screen/solar_system/solor_system_quiz/no1/sum_solar_no1.dart';
 
 class HomeSolar extends StatefulWidget {
   const HomeSolar({super.key});
@@ -12,6 +13,12 @@ class HomeSolar extends StatefulWidget {
 }
 
 class _MyWidgetState extends State<HomeSolar> {
+  final stlys = ElevatedButton.styleFrom(
+      backgroundColor: Color(0xFFD9D9D9),
+      shape: CircleBorder(
+        side: BorderSide(color: Color(0xFF9B9B9B), width: 4.0),
+      ));
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -40,7 +47,7 @@ class _MyWidgetState extends State<HomeSolar> {
                     onPressed: () {
                       Navigator.pushReplacement(context,
                           MaterialPageRoute(builder: (context) {
-                        return SolarQuiz1Screen();
+                        return SumSolarNo1Screen();
                       }));
                     },
                     style: ElevatedButton.styleFrom(
@@ -69,23 +76,17 @@ class _MyWidgetState extends State<HomeSolar> {
                   width: 100,
                   child: ElevatedButton(
                       onPressed: () {
-                        Navigator.pushReplacement(context,
-                            MaterialPageRoute(builder: (context) {
-                          return SolarQuiz2Screen();
-                        }));
+                        // Navigator.pushReplacement(context,
+                        //     MaterialPageRoute(builder: (context) {
+                        //   return SolarQuiz2Screen();
+                        // }));
                       },
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.lightGreen[400],
-                          shape: CircleBorder(
-                            side: BorderSide(
-                                color: Color.fromARGB(255, 51, 105, 30),
-                                width: 4.0),
-                          )),
+                      style: stlys,
                       child: Text("2",
                           style: TextStyle(
                               fontSize: 25,
                               fontWeight: FontWeight.bold,
-                              color: Colors.black)))),
+                              color: Color(0xFF6C6C6C))))),
             ],
           ),
         ),
@@ -97,22 +98,17 @@ class _MyWidgetState extends State<HomeSolar> {
             width: 100,
             child: ElevatedButton(
                 onPressed: () {
-                  Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder: (context) {
-                    return SolarQuiz3Screen();
-                  }));
+                  // Navigator.pushReplacement(context,
+                  //     MaterialPageRoute(builder: (context) {
+                  //   return SolarQuiz3Screen();
+                  // }));
                 },
-                style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.lightGreen[400],
-                    shape: CircleBorder(
-                      side: BorderSide(
-                          color: Color.fromARGB(255, 51, 105, 30), width: 4.0),
-                    )),
+                style: stlys,
                 child: Text("จบ",
                     style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
-                        color: Colors.black)))),
+                        color: Color(0xFF6C6C6C))))),
         SizedBox(
           height: 50,
         ),

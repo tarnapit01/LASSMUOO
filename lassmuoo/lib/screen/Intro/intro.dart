@@ -1,6 +1,8 @@
-// Intro/intro.dart
+// screen/Intro/intro.dart
 import 'package:flutter/material.dart';
-import 'package:lassmuoo/screen/Intro/f_intro.dart';
+
+import 'package:lassmuoo/screen/Intro/sum_page.dart';
+import 'package:rive/rive.dart';
 
 class IntroScreen extends StatelessWidget {
   const IntroScreen({super.key});
@@ -23,20 +25,26 @@ class IntroScreen extends StatelessWidget {
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 50,
-                    color: Colors.deepPurple),
+                    fontFamily: "Mitr-bold",
+                    color: Color.fromARGB(255, 34, 209, 136)),
               ),
               SizedBox(height: 20),
               Text(
-                "เรียนรู้ดาราศาสตร์ กับ มู ผู้รอบรู้",
+                "เรียนรู้ดาราศาสตร์ \nกับ มู ผู้รอบรู้",
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
+                    fontFamily: "Mitr-Light",
                     fontSize: 37,
                     color: Colors.white),
               ),
               SizedBox(
                 height: 20,
               ),
-              Image.asset("lib/assets/images/Alien.png"),
+              SizedBox(
+                  width: 300,
+                  height: 300,
+                  child:
+                      RiveAnimation.asset("lib/assets/rive/mark-4-model.riv")),
               SizedBox(
                 height: 30,
               ),
@@ -46,10 +54,13 @@ class IntroScreen extends StatelessWidget {
                   child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.deepPurple),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).push(_createRoute());
+                      },
                       child: Text(
                         "ล็อกอิน",
                         style: TextStyle(
+                            fontFamily: "Mitr-Light",
                             fontSize: 30,
                             fontWeight: FontWeight.bold,
                             color: Colors.white),
@@ -58,14 +69,12 @@ class IntroScreen extends StatelessWidget {
                 width: double.infinity,
                 child: TextButton.icon(
                   onPressed: () {
-                    Navigator.pushReplacement(context,
-                        MaterialPageRoute(builder: (context) {
-                      return FirstIntroScreen();
-                    }));
+                    Navigator.of(context).push(_createRoute());
                   },
                   label: Text(
                     "ผู้เข้าชม",
                     style: TextStyle(
+                        fontFamily: "Mitr-Light",
                         fontSize: 17,
                         color: Colors.white,
                         fontStyle: FontStyle.italic,
@@ -79,4 +88,23 @@ class IntroScreen extends StatelessWidget {
       ),
     );
   }
+}
+
+Route _createRoute() {
+  return PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) =>
+          const SumPageScreen(),
+      transitionDuration: Duration(milliseconds: 500),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        // Create a curved animation for smoother fading
+        final curvedAnimation = CurvedAnimation(
+          parent: animation,
+          curve: Curves.easeIn,
+        );
+
+        return FadeTransition(
+          opacity: curvedAnimation,
+          child: child,
+        );
+      });
 }
