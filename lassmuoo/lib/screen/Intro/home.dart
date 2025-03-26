@@ -24,24 +24,9 @@ class _HomeScreenState extends State<HomeScreen> {
         HomeEarthStructure(),
       ],
     ),
-    Center(
-      child: Text(
-        'Category Screen',
-        style: TextStyle(fontSize: 24, color: Colors.white), // เปลี่ยนข้อความเป็นสีขาว
-      ),
-    ),
-    Center(
-      child: Text(
-        'Chat Screen',
-        style: TextStyle(fontSize: 24, color: Colors.white), // เปลี่ยนข้อความเป็นสีขาว
-      ),
-    ),
-    Center(
-      child: Text(
-        'Profile Screen',
-        style: TextStyle(fontSize: 24, color: Colors.white), // เปลี่ยนข้อความเป็นสีขาว
-      ),
-    ),
+    Center(child: Text('Quiz Screen', style: TextStyle(fontSize: 24, color: Colors.white))),
+    Center(child: Text('Chat Screen', style: TextStyle(fontSize: 24, color: Colors.white))),
+    Center(child: Text('Profile Screen', style: TextStyle(fontSize: 24, color: Colors.white))),
   ];
 
   // ฟังก์ชันสำหรับเปลี่ยน Tab
