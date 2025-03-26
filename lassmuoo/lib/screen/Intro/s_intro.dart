@@ -24,7 +24,7 @@ class _SecondScreenState extends State<SecondScreen> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
-                        "เขาต้องการหาทรัพยากรสำคัญเพื่อช่วยฟื้นฟูดาวของตนเอง",
+                        "มูต้องการหาทรัพยากรสำคัญเพื่อช่วยฟื้นฟูดาวของตนเอง",
                         style: TextStyle(
                             fontFamily: "Mitr-Light",
                             fontSize: 30,
@@ -35,7 +35,7 @@ class _SecondScreenState extends State<SecondScreen> {
                           width: 600,
                           height: 550,
                           child: RiveAnimation.asset(
-                              "lib/assets/rive/lassmuoo.riv"))
+                              "lib/assets/rive/scence-3.riv"))
                     ]))));
   }
 }
