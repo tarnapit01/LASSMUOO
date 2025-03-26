@@ -27,7 +27,7 @@ class _SolarQuiz2ScreenState extends State<SolarQuiz2Screen> {
                   children: [
                     TextSpan(
                       text: "มู", // คำที่ต้องการเปลี่ยนสีและขนาด
-                      style: TextStyle(
+                      style: TextStyle(fontFamily: "Mitr-Light",
                         color: Color(0xFF4EAF96), // เปลี่ยนสีเฉพาะคำว่า "มู"
                         fontSize: 30, // เปลี่ยนขนาดเฉพาะคำว่า "มู"
                         fontWeight: FontWeight.bold,
@@ -35,7 +35,7 @@ class _SolarQuiz2ScreenState extends State<SolarQuiz2Screen> {
                     ),
                     TextSpan(
                       text: ' พบกับ "ระบบสุริยะ" \nซึ่งเป็นระบบที่มี',
-                      style: TextStyle(
+                      style: TextStyle(fontFamily: "Mitr-Light",
                         color: Colors.white,
                         fontSize: 30,
                         fontWeight: FontWeight.bold,
@@ -43,7 +43,7 @@ class _SolarQuiz2ScreenState extends State<SolarQuiz2Screen> {
                     ),
                     TextSpan(
                       text: ' ดวงอาทิตย์',
-                      style: TextStyle(
+                      style: TextStyle(fontFamily: "Mitr-Light",
                         color: Colors.amber[800],
                         fontSize: 30,
                         fontWeight: FontWeight.bold,
@@ -51,7 +51,7 @@ class _SolarQuiz2ScreenState extends State<SolarQuiz2Screen> {
                     ),
                     TextSpan(
                       text: 'เป็นจุดศูนย์กลาง',
-                      style: TextStyle(
+                      style: TextStyle(fontFamily: "Mitr-Light",
                         color: Colors.white,
                         fontSize: 30,
                         fontWeight: FontWeight.bold,

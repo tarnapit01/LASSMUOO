@@ -27,7 +27,7 @@ class _SolarQuiz3ScreenState extends State<SolarQuiz3Screen> {
                   children: [
                     TextSpan(
                       text: 'ดวงอาทิตย์',
-                      style: TextStyle(
+                      style: TextStyle(fontFamily: "Mitr-Light",
                         color: Colors.amber[800],
                         fontSize: 30,
                         fontWeight: FontWeight.bold,
@@ -36,7 +36,7 @@ class _SolarQuiz3ScreenState extends State<SolarQuiz3Screen> {
                     TextSpan(
                       text:
                           "ทำหน้าที่เป็นแหล่งพลังงานและแรงดึงดูดที่คอยรักษาดาวเคราะห์ทั้ง 8 ดวงให้อยู่ในวงโคจร",
-                      style: TextStyle(
+                      style: TextStyle(fontFamily: "Mitr-Light",
                         color: Colors.white,
                         fontSize: 30,
                         fontWeight: FontWeight.bold,

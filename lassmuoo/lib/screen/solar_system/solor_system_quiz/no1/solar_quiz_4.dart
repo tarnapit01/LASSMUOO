@@ -27,7 +27,7 @@ class _SolarQuiz14creenState extends State<SolarQuiz4Screen> {
                   children: [
                     TextSpan(
                       text: "ต่อไปเล่นเกมเพื่อช่วย \nให้ ",
-                      style: TextStyle(
+                      style: TextStyle(fontFamily: "Mitr-Light",
                         color: Colors.white,
                         fontSize: 38,
                         fontWeight: FontWeight.bold,
@@ -35,7 +35,7 @@ class _SolarQuiz14creenState extends State<SolarQuiz4Screen> {
                     ),
                     TextSpan(
                       text: "มู", // คำที่ต้องการเปลี่ยนสีและขนาด
-                      style: TextStyle(
+                      style: TextStyle(fontFamily: "Mitr-Light",
                         color: Color(0xFF4EAF96), // เปลี่ยนสีเฉพาะคำว่า "มู"
                         fontSize: 38, // เปลี่ยนขนาดเฉพาะคำว่า "มู"
                         fontWeight: FontWeight.bold,
@@ -43,7 +43,7 @@ class _SolarQuiz14creenState extends State<SolarQuiz4Screen> {
                     ),
                     TextSpan(
                       text: " เข้าใจระบบสุริยะ",
-                      style: TextStyle(
+                      style: TextStyle(fontFamily: "Mitr-Light",
                         color: Colors.white,
                         fontSize: 38,
                         fontWeight: FontWeight.bold,

@@ -25,11 +25,10 @@ class _SumSolarNo1ScreenState extends State<SumSolarNo1Screen> {
     const SolarQuiz4Screen()
   ];
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:  Stack(
+      body: Stack(
         children: [
           PageView.builder(
               controller: _pageController,
@@ -97,7 +96,6 @@ class _SumSolarNo1ScreenState extends State<SumSolarNo1Screen> {
         ],
       ),
     );
-    
   }
 }
 
@@ -105,16 +103,18 @@ Route _createRoute() {
   return PageRouteBuilder(
       pageBuilder: (context, animation, secondaryAnimation) =>
           const SolarAssignment1Screen(),
-      transitionDuration: Duration(milliseconds: 500),
+      transitionDuration: Duration(milliseconds: 100),
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
-        // Create a curved animation for smoother fading
-        final curvedAnimation = CurvedAnimation(
-          parent: animation,
-          curve: Curves.easeIn,
-        );
+        const begin = Offset(1.0, 0.0); // Start from right
+        const end = Offset.zero;
+        const curve = Curves.easeIn;
 
-        return FadeTransition(
-          opacity: curvedAnimation,
+        var tween =
+            Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+        var offsetAnimation = animation.drive(tween);
+
+        return SlideTransition(
+          position: offsetAnimation,
           child: child,
         );
       });

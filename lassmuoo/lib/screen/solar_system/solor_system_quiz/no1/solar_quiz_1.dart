@@ -35,8 +35,9 @@ class _SolarQuiz1ScreenState extends State<SolarQuiz1Screen> {
                     ),
                     TextSpan(
                       text:
-                          " เป็นนักสำรวจจาก \nดาวอันไกลโพ้นที่เดินทางสำรวจจักรวาล",
+                          " เป็นนักสำรวจจากดาว\nอันไกลโพ้นที่เดินทางสำรวจจักรวาล",
                       style: TextStyle(
+                        fontFamily: "Mitr-Light",
                         color: Colors.white,
                         fontSize: 30,
                         fontWeight: FontWeight.bold,
