@@ -1,11 +1,66 @@
+<<<<<<< HEAD:lassmuoo/lib/screen/Intro/intro.dart
 // screen/Intro/intro.dart
+=======
+>>>>>>> 0d33336e5f8969563ed8288c36f3d49ee1ab2191:lassmuoo/lib/Intro/intro.dart
 import 'package:flutter/material.dart';
 
 import 'package:lassmuoo/screen/Intro/sum_page.dart';
 import 'package:rive/rive.dart';
 
-class IntroScreen extends StatelessWidget {
+class IntroScreen extends StatefulWidget {
   const IntroScreen({super.key});
+
+  @override
+  _IntroScreenState createState() => _IntroScreenState();
+}
+
+class _IntroScreenState extends State<IntroScreen>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<Offset> _animation;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      duration: const Duration(seconds: 2),
+      vsync: this,
+    )..repeat(reverse: true);
+    _animation = Tween<Offset>(
+      begin: Offset(0, 0),
+      end: Offset(0, 0.1),
+    ).animate(CurvedAnimation(
+      parent: _controller,
+      curve: Curves.easeInOut,
+    ));
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  void _navigateToNextScreen(BuildContext context) {
+    Navigator.pushReplacement(
+      context,
+      PageRouteBuilder(
+        pageBuilder: (context, animation, secondaryAnimation) => FirstIntroScreen(),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          const begin = Offset(1.0, 0.0);
+          const end = Offset.zero;
+          const curve = Curves.ease;
+
+          var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+          return SlideTransition(
+            position: animation.drive(tween),
+            child: child,
+          );
+        },
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,11 +95,18 @@ class IntroScreen extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
+<<<<<<< HEAD:lassmuoo/lib/screen/Intro/intro.dart
               SizedBox(
                   width: 300,
                   height: 300,
                   child:
                       RiveAnimation.asset("lib/assets/rive/mark-4-model.riv")),
+=======
+              SlideTransition(
+                position: _animation,
+                child: Image.asset("lib/assets/images/Alien.png"),
+              ),
+>>>>>>> 0d33336e5f8969563ed8288c36f3d49ee1ab2191:lassmuoo/lib/Intro/intro.dart
               SizedBox(
                 height: 30,
               ),
@@ -69,8 +131,13 @@ class IntroScreen extends StatelessWidget {
                 width: double.infinity,
                 child: TextButton.icon(
                   onPressed: () {
+<<<<<<< HEAD:lassmuoo/lib/screen/Intro/intro.dart
                     Navigator.of(context).push(_createRoute());
+=======
+                    _navigateToNextScreen(context);
+>>>>>>> 0d33336e5f8969563ed8288c36f3d49ee1ab2191:lassmuoo/lib/Intro/intro.dart
                   },
+                  icon: Icon(Icons.arrow_forward, color: Colors.white),
                   label: Text(
                     "ผู้เข้าชม",
                     style: TextStyle(
@@ -88,6 +155,7 @@ class IntroScreen extends StatelessWidget {
       ),
     );
   }
+<<<<<<< HEAD:lassmuoo/lib/screen/Intro/intro.dart
 }
 
 Route _createRoute() {
@@ -108,3 +176,6 @@ Route _createRoute() {
         );
       });
 }
+=======
+}
+>>>>>>> 0d33336e5f8969563ed8288c36f3d49ee1ab2191:lassmuoo/lib/Intro/intro.dart
