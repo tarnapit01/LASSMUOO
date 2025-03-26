@@ -1,10 +1,9 @@
-// navigation_bar/n_bar.dart
 import 'package:flutter/material.dart';
 
-
 class NBar extends StatefulWidget {
-  final int initialIndex; // Accept initial index
-  const NBar({super.key, this.initialIndex = 0});
+  final int initialIndex; // รับค่าเริ่มต้นของ Tab
+  final Function(int)? onItemTapped; // Callback สำหรับการเปลี่ยน Tab
+  const NBar({super.key, this.initialIndex = 0, this.onItemTapped});
 
   @override
   State<NBar> createState() => _NBar();
@@ -16,61 +15,48 @@ class _NBar extends State<NBar> {
   @override
   void initState() {
     super.initState();
-    _selectedIndex = widget.initialIndex; // Use initial index from parent
+    _selectedIndex = widget.initialIndex; // ใช้ค่าเริ่มต้นจาก parent
   }
 
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
     });
+    if (widget.onItemTapped != null) {
+      widget.onItemTapped!(index); // เรียก callback เมื่อเปลี่ยน Tab
+    }
   }
 
-  final List _widgetOptions = <Widget>[
-    // WelcomeScreen(),
-    // CategoryScreen(),
-    // ChatScreen(),
-    // UserProfile()
-  ];
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
-      ),
-      bottomNavigationBar: Theme(
-        data: Theme.of(context).copyWith(
-          // sets the background color of the `BottomNavigationBar`
-          canvasColor: Colors.green,
-          // sets the active color of the `BottomNavigationBar` if `Brightness` is light
-
-          textTheme: Theme.of(context)
-              .textTheme
-              .copyWith(bodySmall: TextStyle(color: Colors.yellow[400])),
+    return BottomNavigationBar(
+      backgroundColor: Colors.blueGrey, // เปลี่ยนพื้นหลังเป็นสีขาว
+      items: const <BottomNavigationBarItem>[
+        BottomNavigationBarItem(
+          icon: Icon(Icons.home),
+          label: 'Home',
+          activeIcon: Icon(Icons.home, color: Colors.blue), // สีเมื่อถูกเลือก
         ),
-        child: BottomNavigationBar(
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.category),
-              label: 'Category',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.chat),
-              label: 'Chat',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.account_circle),
-              label: 'Profile',
-            ),
-          ],
-          currentIndex: _selectedIndex,
-          selectedItemColor: Colors.yellow[400],
-          onTap: _onItemTapped,
+        BottomNavigationBarItem(
+          icon: Icon(Icons.quiz),
+          label: 'Quiz',
+          activeIcon: Icon(Icons.quiz, color: Colors.blue), // สีเมื่อถูกเลือก
         ),
-      ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.chat),
+          label: 'Chat',
+          activeIcon: Icon(Icons.chat, color: Colors.blue), // สีเมื่อถูกเลือก
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.account_circle),
+          label: 'Profile',
+          activeIcon: Icon(Icons.account_circle, color: Colors.blue), // สีเมื่อถูกเลือก
+        ),
+      ],
+      currentIndex: _selectedIndex,
+      selectedItemColor: Colors.blue, // สีของไอคอนที่ถูกเลือก
+      unselectedItemColor: Colors.grey, // สีของไอคอนที่ไม่ได้ถูกเลือก
+      onTap: _onItemTapped,
     );
   }
 }
