@@ -1,3 +1,4 @@
+// screen/result/end_assignment_1.dart
 import 'package:flutter/material.dart';
 import 'package:lassmuoo/screen/Intro/home.dart';
 
@@ -147,10 +148,7 @@ class EndAssignment1Screen extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder: (context) {
-                    return HomeScreen();
-                  }));
+                  Navigator.of(context).push(_createRoute());
                 },
                 child: const Text(
                   "เสร็จสิ้น",
@@ -167,4 +165,23 @@ class EndAssignment1Screen extends StatelessWidget {
       ),
     );
   }
+}
+
+Route _createRoute() {
+  return PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) =>
+          const HomeScreen(),
+      transitionDuration: Duration(milliseconds: 500),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        // Create a curved animation for smoother fading
+        final curvedAnimation = CurvedAnimation(
+          parent: animation,
+          curve: Curves.easeIn,
+        );
+
+        return FadeTransition(
+          opacity: curvedAnimation,
+          child: child,
+        );
+      });
 }

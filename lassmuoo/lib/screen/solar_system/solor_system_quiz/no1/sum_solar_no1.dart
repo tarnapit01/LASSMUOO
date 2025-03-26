@@ -79,7 +79,7 @@ class _SumSolarNo1ScreenState extends State<SumSolarNo1Screen> {
                     style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.deepPurple),
                     onPressed: () {
-                      Navigator.of(context).push(_createRoute());
+                      Navigator.of(context).pushReplacement(_createRoute());
                     },
                     icon: Text(
                       "ต่อไป",

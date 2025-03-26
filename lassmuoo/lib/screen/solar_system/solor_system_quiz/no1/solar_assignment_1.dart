@@ -23,32 +23,72 @@ class _SolarAssignment1ScreenState extends State<SolarAssignment1Screen> {
         backgroundColor: Colors.black,
         leading: TextButton(
             onPressed: () {
-              AlertDialog alert = AlertDialog(
-                title: Text("You want to exit?"),
-                content: Text("You will lose your progress"),
-                actions: [
-                  TextButton(
-                    onPressed: () {
-                      Navigator.pushReplacement(context,
-                          MaterialPageRoute(builder: (context) {
-                        return HomeScreen();
-                      }));
-                    },
-                    child: Text("Yes"),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    child: Text("No"),
-                  ),
-                ],
-              );
               showDialog(
-                  context: context,
-                  builder: (BuildContext context) {
-                    return alert;
-                  });
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(
+                          20), // Adds significant roundness
+                    ),
+                    title: Text(
+                      "คุณต้องการออกจากเกมหรือไม่",
+                      style: TextStyle(
+                        fontFamily: "Mitr-Light",
+                        fontWeight: FontWeight.bold,
+                        color: Colors.deepPurple,
+                      ),
+                    ),
+                    content: Text(
+                      "หากคุณออกจากเกมไปแล้ว คุณต้องเริ่มใหม่คุณแน่ใจหรือไม่",
+                      style: TextStyle(
+                        fontFamily: "Mitr-Light",
+                        color: Colors.grey[700],
+                      ),
+                    ),
+                    backgroundColor: Colors.white, // Softer background
+                    actionsPadding:
+                        EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                    actions: [
+                      TextButton(
+                        onPressed: () =>
+                            Navigator.pop(context), // Dismiss dialog
+                        child: Text(
+                          "อยู่ต่อ",
+                          style: TextStyle(
+                            fontFamily: "Mitr-Light",
+                            color: Colors.grey,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
+                      ElevatedButton(
+                        onPressed: () {
+                          Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => HomeScreen()));
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor:
+                              Colors.deepPurple, // Vibrant button color
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                        ),
+                        child: Text(
+                          "แน่ใจ",
+                          style: TextStyle(
+                            fontFamily: "Mitr-Light",
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ],
+                  );
+                },
+              );
             },
             child: Icon(
               Icons.close_sharp,
@@ -72,7 +112,8 @@ class _SolarAssignment1ScreenState extends State<SolarAssignment1Screen> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text("ระบบสุริยะจักรวาล",
-                  style: TextStyle(fontFamily: "Mitr-Light",
+                  style: TextStyle(
+                    fontFamily: "Mitr-Light",
                     color: Colors.white,
                     fontSize: 20,
                   )),
@@ -81,7 +122,8 @@ class _SolarAssignment1ScreenState extends State<SolarAssignment1Screen> {
               ),
               Text(
                 "ในระบบสุริยะจักรวาล มีดาวเคราะห์ทั้งหมดกี่ดวง ?",
-                style: TextStyle(fontFamily: "Mitr-Light",
+                style: TextStyle(
+                    fontFamily: "Mitr-Light",
                     color: Colors.white,
                     fontSize: 30,
                     fontWeight: FontWeight.bold),
@@ -138,10 +180,11 @@ class _SolarAssignment1ScreenState extends State<SolarAssignment1Screen> {
                               children: [
                                 Text(
                                   "เก่งมาก !! คุณพร้อมที่จะเล่นเกมต่อไปรึยัง ?",
-                                  style: TextStyle(fontFamily: "Mitr-Light",
+                                  style: TextStyle(
+                                    fontFamily: "Mitr-Light",
                                     fontSize: 20,
                                     fontWeight: FontWeight.bold,
-                                    color: Colors.black,
+                                    color: Colors.green[600],
                                   ),
                                   textAlign: TextAlign.center,
                                 ),
@@ -167,8 +210,10 @@ class _SolarAssignment1ScreenState extends State<SolarAssignment1Screen> {
                                     },
                                     child: Text(
                                       "ต่อไป",
-                                      style: TextStyle(fontFamily: "Mitr-Light",
-                                          fontSize: 18, color: Colors.white),
+                                      style: TextStyle(
+                                          fontFamily: "Mitr-Light",
+                                          fontSize: 18,
+                                          color: Colors.white),
                                     ),
                                   ),
                                 ),
@@ -193,10 +238,11 @@ class _SolarAssignment1ScreenState extends State<SolarAssignment1Screen> {
                               children: [
                                 Text(
                                   "ไม่เป็นไรนะ ยังมีข้อต่อไป",
-                                  style: TextStyle(fontFamily: "Mitr-Light",
+                                  style: TextStyle(
+                                    fontFamily: "Mitr-Light",
                                     fontSize: 20,
                                     fontWeight: FontWeight.bold,
-                                    color: Colors.black,
+                                    color: Colors.red[400],
                                   ),
                                   textAlign: TextAlign.center,
                                 ),
@@ -222,8 +268,10 @@ class _SolarAssignment1ScreenState extends State<SolarAssignment1Screen> {
                                     },
                                     child: Text(
                                       "ต่อไป",
-                                      style: TextStyle(fontFamily: "Mitr-Light",
-                                          fontSize: 18, color: Colors.white),
+                                      style: TextStyle(
+                                          fontFamily: "Mitr-Light",
+                                          fontSize: 18,
+                                          color: Colors.white),
                                     ),
                                   ),
                                 ),
