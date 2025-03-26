@@ -1,0 +1,279 @@
+// navigation_bar/ex_how_to_use_n_bar.dart
+
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Navigationbar/n_bar.dart';
+import 'package:flutter_application_1/screen/showProduct.dart';
+// import 'package:flutter_application_1/screen/chat.dart';
+// import 'package:flutter_application_1/screen/category.dart';
+// import 'package:flutter_application_1/screen/chat.dart';
+// import 'package:flutter_application_1/screen/profile.dart';
+// // import 'package:flutter_application_1/screen/home.dart';
+// import 'package:fluttertoast/fluttertoast.dart';
+
+class WelcomeScreen extends StatefulWidget {
+  const WelcomeScreen({super.key});
+
+  @override
+  State<WelcomeScreen> createState() => _WelocmScreen();
+}
+
+class _WelocmScreen extends State<WelcomeScreen> {
+  final auth = FirebaseAuth.instance;
+  final FirebaseFirestore db = FirebaseFirestore.instance;
+
+  String selectedCategory = "All";
+  List<Map<String, dynamic>> products = [];
+
+  Future<void> fetchProducts() async {
+    final snapshot = await db.collection('products').get();
+    setState(() {
+      products = snapshot.docs.map((doc) => doc.data()).toList();
+    });
+  }
+
+  List<Map<String, dynamic>> getFilteredProducts() {
+    if (selectedCategory == "All") {
+      return products;
+    }
+    return products
+        .where((product) =>
+            product['category'] != null &&
+            (product['category'] as List<dynamic>).contains(selectedCategory))
+        .toList();
+  }
+
+  // เพิ่ม getter เพื่อความสะดวกในการใช้งาน
+  bool isCategorySelected(String category) => selectedCategory == category;
+
+  // เพิ่มฟังก์ชันสำหรับเปลี่ยนหมวดหมู่
+  void changeCategory(String category) {
+    setState(() {
+      selectedCategory = category;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    fetchProducts();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final filteredProducts = getFilteredProducts();
+    return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.message),
+          onPressed: () {
+            Navigator.pushReplacement(context,
+                MaterialPageRoute(builder: (context) {
+              return NBar(
+                initialIndex: 2,
+              ); // ย้อนกลับไปยังหน้า Home
+            }));
+          },
+        ),
+        title: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(
+              height: 30,
+              child: SearchBar(
+                hintText: "Search...",
+                trailing: <Widget>[
+                  IconButton(
+                    icon: Icon(Icons.search),
+                    onPressed: () {},
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.shopping_cart),
+            onPressed: () {
+              // Navigator.pushReplacement(context,
+              //     MaterialPageRoute(builder: (context) {
+              //   return WelcomeScreen();
+              // }));
+            },
+          ),
+        ],
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Center(
+          child: Column(
+            children: [
+              SizedBox(
+                width: double.infinity,
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30.0),
+                  ),
+                  child: Image.asset("lib/assets/images/shop.jpg"),
+                ),
+              ), // แก้ไขส่วนของปุ่มหมวดหมู่
+              SizedBox(
+                child: Row(
+                  children: [
+                    TextButton(
+                      onPressed: () => changeCategory("All"),
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                          isCategorySelected("All")
+                              ? Colors.blue[100]
+                              : Colors.transparent,
+                        ),
+                      ),
+                      child: Text(
+                        "All",
+                        style: TextStyle(
+                          color: isCategorySelected("All")
+                              ? Colors.blue
+                              : Colors.black,
+                          fontWeight: isCategorySelected("All")
+                              ? FontWeight.bold
+                              : FontWeight.normal,
+                        ),
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () => changeCategory("wood"),
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                          isCategorySelected("wood")
+                              ? Colors.blue[100]
+                              : Colors.transparent,
+                        ),
+                      ),
+                      child: Text(
+                        "Wood",
+                        style: TextStyle(
+                          color: isCategorySelected("Wood")
+                              ? Colors.blue
+                              : Colors.black,
+                          fontWeight: isCategorySelected("Wood")
+                              ? FontWeight.bold
+                              : FontWeight.normal,
+                        ),
+                      ),
+                    ),
+                    // ทำแบบเดียวกันกับปุ่ม Ceramic, Knit, และ Furniture
+                    TextButton(
+                      onPressed: () => changeCategory("ceramic"),
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                          isCategorySelected("ceramic")
+                              ? Colors.blue[100]
+                              : Colors.transparent,
+                        ),
+                      ),
+                      child: Text(
+                        "Ceramic",
+                        style: TextStyle(
+                          color: isCategorySelected("Ceramic")
+                              ? Colors.blue
+                              : Colors.black,
+                          fontWeight: isCategorySelected("Ceramic")
+                              ? FontWeight.bold
+                              : FontWeight.normal,
+                        ),
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () => changeCategory("knit"),
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                          isCategorySelected("knit")
+                              ? Colors.blue[100]
+                              : Colors.transparent,
+                        ),
+                      ),
+                      child: Text(
+                        "Knit",
+                        style: TextStyle(
+                          color: isCategorySelected("Knit")
+                              ? Colors.blue
+                              : Colors.black,
+                          fontWeight: isCategorySelected("Knit")
+                              ? FontWeight.bold
+                              : FontWeight.normal,
+                        ),
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () => changeCategory("furniture"),
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                          isCategorySelected("furniture")
+                              ? Colors.blue[100]
+                              : Colors.transparent,
+                        ),
+                      ),
+                      child: Text(
+                        "Furniture",
+                        style: TextStyle(
+                          color: isCategorySelected("Furniture")
+                              ? Colors.blue
+                              : Colors.black,
+                          fontWeight: isCategorySelected("Furniture")
+                              ? FontWeight.bold
+                              : FontWeight.normal,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Divider(
+                height: 0,
+                thickness: 1,
+                indent: 20,
+                endIndent: 40,
+                color: Colors.black,
+              ),
+              Expanded(
+                child: filteredProducts.isEmpty
+                    ? const Center(
+                        child: Text("ไม่มีสินค้าในหมวดหมู่นี้"),
+                      )
+                    : ListView.builder(
+                        itemCount: filteredProducts.length,
+                        itemBuilder: (context, index) {
+                          final product = filteredProducts[index];
+                          return Card(
+                            margin: const EdgeInsets.symmetric(vertical: 8.0),
+                            child: ListTile(
+                              title: Text(product['name'] ?? "ไม่มีชื่อสินค้า"),
+                              subtitle: Text(
+                                  "ราคา: ${product['price'] ?? 'ไม่ระบุ'} บาท"),
+                              trailing:
+                                  Text("สต็อก: ${product['stock'] ?? '0'}"),
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) {
+                                          return ShowProductScreen();
+                                        },
+                                        settings:
+                                            RouteSettings(arguments: product)));
+                              },
+                            ),
+                          );
+                        },
+                      ),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

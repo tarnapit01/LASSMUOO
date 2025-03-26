@@ -1,6 +1,7 @@
 // screen/Intro/t_intro.dart
 import 'package:flutter/material.dart';
 import 'package:lassmuoo/screen/Intro/home.dart';
+import 'package:rive/rive.dart';
 // import 'package:lassmuoo/Intro/intro.dart';
 
 class ThirdScreen extends StatelessWidget {
@@ -15,11 +16,6 @@ class ThirdScreen extends StatelessWidget {
         ),
         body: Center(
             child: Container(
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image:
-                            AssetImage("lib/assets/images/Welcome_page 7.jpg"),
-                        fit: BoxFit.cover)),
                 padding: EdgeInsets.fromLTRB(12, 0, 12, 8),
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -32,6 +28,11 @@ class ThirdScreen extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                             color: Colors.white),
                       ),
+                      SizedBox(
+                          width: 600,
+                          height: 400,
+                          child: RiveAnimation.asset(
+                              "lib/assets/rive/scence-4.riv"))
                       //   SizedBox(
                       //     height: 520,
                       //   ),

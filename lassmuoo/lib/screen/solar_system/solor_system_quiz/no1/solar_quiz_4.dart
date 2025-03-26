@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:lassmuoo/layout/next_button.dart';
 import 'package:lassmuoo/screen/solar_system/solor_system_quiz/no1/solar_assignment_1.dart';
+import 'package:rive/rive.dart';
 
 class SolarQuiz4Screen extends StatefulWidget {
   const SolarQuiz4Screen({super.key});
@@ -52,6 +53,9 @@ class _SolarQuiz14creenState extends State<SolarQuiz4Screen> {
                 ),
                 maxLines: 10,
               ),
+              SizedBox(width: 400,
+                height: 500,
+                child: RiveAnimation.asset("lib/assets/rive/quiz_4_solar_no_1.riv"))
               // SizedBox(
               //   height: 20,
               // ),
