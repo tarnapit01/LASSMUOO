@@ -77,7 +77,7 @@ class _SumPageScreenState extends State<SumPageScreen> {
                     style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.deepPurple),
                     onPressed: () {
-                      Navigator.of(context).push(_createRoute());
+                      Navigator.of(context).pushReplacement(_createRoute());
                     },
                     icon: Text(
                       "ต่อไป",

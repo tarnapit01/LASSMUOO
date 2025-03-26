@@ -1,5 +1,6 @@
 // screen/solar_system/solor_system_quiz/no1/solar_assignment_2.dart
 import 'package:flutter/material.dart';
+import 'package:lassmuoo/screen/Intro/home.dart';
 
 import 'package:lassmuoo/screen/result/end_assignment_1.dart';
 import 'package:lassmuoo/screen/solar_system/solor_system_quiz/no1/solar_assignment_1.dart';
@@ -23,13 +24,75 @@ class _SolarAssignment2ScreenState extends State<SolarAssignment2Screen> {
         backgroundColor: Colors.black,
         leading: TextButton(
             onPressed: () {
-              Navigator.pushReplacement(context,
-                  MaterialPageRoute(builder: (context) {
-                return SolarAssignment1Screen();
-              }));
+              showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(
+                          20), // Adds significant roundness
+                    ),
+                    title: Text(
+                      "คุณต้องการออกจากเกมหรือไม่",
+                      style: TextStyle(
+                        fontFamily: "Mitr-Light",
+                        fontWeight: FontWeight.bold,
+                        color: Colors.deepPurple,
+                      ),
+                    ),
+                    content: Text(
+                      "หากคุณออกจากเกมไปแล้ว คุณต้องเริ่มใหม่คุณแน่ใจหรือไม่",
+                      style: TextStyle(
+                        fontFamily: "Mitr-Light",
+                        color: Colors.grey[700],
+                      ),
+                    ),
+                    backgroundColor: Colors.white, // Softer background
+                    actionsPadding:
+                        EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                    actions: [
+                      TextButton(
+                        onPressed: () =>
+                            Navigator.pop(context), // Dismiss dialog
+                        child: Text(
+                          "อยู่ต่อ",
+                          style: TextStyle(
+                            fontFamily: "Mitr-Light",
+                            color: Colors.grey,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
+                      ElevatedButton(
+                        onPressed: () {
+                          Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => HomeScreen()));
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor:
+                              Colors.deepPurple, // Vibrant button color
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                        ),
+                        child: Text(
+                          "แน่ใจ",
+                          style: TextStyle(
+                            fontFamily: "Mitr-Light",
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ],
+                  );
+                },
+              );
             },
             child: Icon(
-              Icons.arrow_back_ios_sharp,
+              Icons.close_sharp,
               color: Colors.white,
               size: 40,
             )),
@@ -50,6 +113,7 @@ class _SolarAssignment2ScreenState extends State<SolarAssignment2Screen> {
             children: [
               Text("ระบบสุริยะจักรวาล",
                   style: TextStyle(
+                    fontFamily: "Mitr-Light",
                     color: Colors.white,
                     fontSize: 20,
                   )),
@@ -59,6 +123,7 @@ class _SolarAssignment2ScreenState extends State<SolarAssignment2Screen> {
               Text(
                 "ระบบสุริยะคืออะไร?",
                 style: TextStyle(
+                    fontFamily: "Mitr-Light",
                     color: Colors.white,
                     fontSize: 30,
                     fontWeight: FontWeight.bold),
@@ -68,7 +133,7 @@ class _SolarAssignment2ScreenState extends State<SolarAssignment2Screen> {
               ),
               SizedBox(
                 width: 350,
-                height: 38,
+                height: 100,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: selectedChoice ==
@@ -85,7 +150,8 @@ class _SolarAssignment2ScreenState extends State<SolarAssignment2Screen> {
                   child: Text(
                     "ระบบของดาวเคราะห์ที่มีดวงจันทร์เป็นจุดศูนย์กลาง",
                     style: TextStyle(
-                      fontSize: 13,
+                      fontFamily: "Mitr-Light",
+                      fontSize: 20,
                       fontWeight: FontWeight.w700,
                       color: selectedChoice ==
                               "ระบบของดาวเคราะห์ที่มีดวงจันทร์เป็นจุดศูนย์กลาง"
@@ -100,7 +166,7 @@ class _SolarAssignment2ScreenState extends State<SolarAssignment2Screen> {
               ),
               SizedBox(
                 width: 350,
-                height: 38,
+                height: 100,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: selectedChoice ==
@@ -116,7 +182,8 @@ class _SolarAssignment2ScreenState extends State<SolarAssignment2Screen> {
                   child: Text(
                     "ระบบของดาวเคราะห์ที่โคจรรอบดวงอาทิตย์",
                     style: TextStyle(
-                      fontSize: 13,
+                      fontFamily: "Mitr-Light",
+                      fontSize: 20,
                       fontWeight: FontWeight.w700,
                       color: selectedChoice ==
                               "ระบบของดาวเคราะห์ที่โคจรรอบดวงอาทิตย์"
@@ -131,7 +198,7 @@ class _SolarAssignment2ScreenState extends State<SolarAssignment2Screen> {
               ),
               SizedBox(
                 width: 350,
-                height: 38,
+                height: 100,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: selectedChoice ==
@@ -148,7 +215,8 @@ class _SolarAssignment2ScreenState extends State<SolarAssignment2Screen> {
                   child: Text(
                     "ระบบของดาวเคราะห์ 9 ดวงที่ไม่มีดวงจันทร์",
                     style: TextStyle(
-                      fontSize: 13,
+                      fontFamily: "Mitr-Light",
+                      fontSize: 20,
                       fontWeight: FontWeight.w700,
                       color: selectedChoice ==
                               "ระบบของดาวเคราะห์ 9 ดวงที่ไม่มีดวงจันทร์"
@@ -171,44 +239,171 @@ class _SolarAssignment2ScreenState extends State<SolarAssignment2Screen> {
                   ),
                   onPressed: () {
                     if (selectedChoice == correctAnswer) {
-                      AlertDialog alert = AlertDialog(
-                        title: Text("Correct"),
-                        content: Text("Well Done!! Great Job!!"),
-                        actions: [
-                          TextButton(
-                            onPressed: () {
-                              Navigator.pushReplacement(context,
-                                  MaterialPageRoute(builder: (context) {
-                                return EndAssignment1Screen();
-                              }));
-                            },
-                            child: Text("Next"),
-                          ),
-                        ],
-                      );
-                      showDialog(
+                      showModalBottomSheet(
                         context: context,
+                        backgroundColor: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius:
+                              BorderRadius.vertical(top: Radius.circular(20)),
+                        ),
                         builder: (BuildContext context) {
-                          return alert;
+                          return Container(
+                            padding: EdgeInsets.all(20),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Text(
+                                  "เก่งมาก !! ขอบคุณที่ช่วยให้มูเข้าใจ\nระบบสุริยะจักวาลได้มากขึ้น",
+                                  style: TextStyle(
+                                    fontFamily: "Mitr-Light",
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.green[600],
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
+                                SizedBox(height: 20),
+                                SizedBox(
+                                  width: double.infinity,
+                                  child: ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: Color(0xFF525CEB),
+                                      padding:
+                                          EdgeInsets.symmetric(vertical: 16),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(30),
+                                      ),
+                                    ),
+                                    onPressed: () {
+                                      Navigator.pop(
+                                          context); // Close the BottomSheet
+                                      Navigator.pushReplacement(context,
+                                          _createRoute(EndAssignment1Screen()));
+                                    },
+                                    child: Text(
+                                      "ต่อไป",
+                                      style: TextStyle(
+                                          fontFamily: "Mitr-Light",
+                                          fontSize: 18,
+                                          color: Colors.white),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          );
+                        },
+                      );
+                    } else if (selectedChoice == "") {
+                      showModalBottomSheet(
+                        context: context,
+                        backgroundColor: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius:
+                              BorderRadius.vertical(top: Radius.circular(20)),
+                        ),
+                        builder: (BuildContext context) {
+                          return Container(
+                            padding: EdgeInsets.all(20),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Text(
+                                  "น่าเสียดายคุณไม่ได้เลือกอะไรเลย ไว้คราวหน้านะ",
+                                  style: TextStyle(
+                                    fontFamily: "Mitr-Light",
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.red[400],
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
+                                SizedBox(height: 20),
+                                SizedBox(
+                                  width: double.infinity,
+                                  child: ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: Color(0xFF525CEB),
+                                      padding:
+                                          EdgeInsets.symmetric(vertical: 16),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(30),
+                                      ),
+                                    ),
+                                    onPressed: () {
+                                      Navigator.pop(
+                                          context); // Close the BottomSheet
+                                      Navigator.pushReplacement(context,
+                                          _createRoute(EndAssignment1Screen()));
+                                    },
+                                    child: Text(
+                                      "ต่อไป",
+                                      style: TextStyle(
+                                          fontFamily: "Mitr-Light",
+                                          fontSize: 18,
+                                          color: Colors.white),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          );
                         },
                       );
                     } else {
-                      AlertDialog alert = AlertDialog(
-                        title: Text("Incorrect"),
-                        content: Text("Try again"),
-                        actions: [
-                          TextButton(
-                            onPressed: () {
-                              Navigator.pop(context);
-                            },
-                            child: Text("OK"),
-                          ),
-                        ],
-                      );
-                      showDialog(
+                      showModalBottomSheet(
                         context: context,
+                        backgroundColor: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius:
+                              BorderRadius.vertical(top: Radius.circular(20)),
+                        ),
                         builder: (BuildContext context) {
-                          return alert;
+                          return Container(
+                            padding: EdgeInsets.all(20),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Text(
+                                  "ไม่เป็นไรนะ มาแก้ตัวใหม่คราวหน้า",
+                                  style: TextStyle(
+                                    fontFamily: "Mitr-Light",
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.red[400],
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
+                                SizedBox(height: 20),
+                                SizedBox(
+                                  width: double.infinity,
+                                  child: ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: Color(0xFF525CEB),
+                                      padding:
+                                          EdgeInsets.symmetric(vertical: 16),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(30),
+                                      ),
+                                    ),
+                                    onPressed: () {
+                                      Navigator.pop(
+                                          context); // Close the BottomSheet
+                                      Navigator.pushReplacement(context,
+                                          _createRoute(EndAssignment1Screen()));
+                                    },
+                                    child: Text(
+                                      "ต่อไป",
+                                      style: TextStyle(
+                                          fontFamily: "Mitr-Light",
+                                          fontSize: 18,
+                                          color: Colors.white),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          );
                         },
                       );
                     }
@@ -216,6 +411,7 @@ class _SolarAssignment2ScreenState extends State<SolarAssignment2Screen> {
                   icon: const Text(
                     "ตรวจคำตอบ",
                     style: TextStyle(
+                      fontFamily: "Mitr-Light",
                       fontSize: 25,
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
@@ -230,4 +426,24 @@ class _SolarAssignment2ScreenState extends State<SolarAssignment2Screen> {
       ),
     );
   }
+}
+
+Route _createRoute(Widget screen) {
+  return PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) => screen,
+      transitionDuration: Duration(milliseconds: 100),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        const begin = Offset(1.0, 0.0); // Start from right
+        const end = Offset.zero;
+        const curve = Curves.easeIn;
+
+        var tween =
+            Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+        var offsetAnimation = animation.drive(tween);
+
+        return SlideTransition(
+          position: offsetAnimation,
+          child: child,
+        );
+      });
 }
